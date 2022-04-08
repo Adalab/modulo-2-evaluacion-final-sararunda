@@ -24,10 +24,15 @@ function paintDrinks() {
 }
 //favourite drinks function
 
-let listFavouritesDrinks = '';
-
+let listFavouritesDrinks = [];
+let drinks = [];
 function handleClickFav(event) {
-  console.log(event.currentTarget.id);
+  const idDrinkSelected = event.currentTarget.id;
+  const drinkFoundFav = drinks.find((drink) => {
+    return drink.idDrink === idDrinkSelected;
+  });
+  listFavouritesDrinks.push(drinkFoundFav);
+  console.log(listFavouritesDrinks);
 }
 
 function addFavListener() {
@@ -37,7 +42,6 @@ function addFavListener() {
   }
 }
 
-let drinks = [];
 function handleClickSearch(event) {
   event.preventDefault();
   if (inputSearch.value === '') {
