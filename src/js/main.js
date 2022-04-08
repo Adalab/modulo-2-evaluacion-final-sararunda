@@ -7,32 +7,51 @@ const urlPlaceholder =
 const inputSearch = document.querySelector('.js-input');
 const btnSearch = document.querySelector('.js-btn-search');
 const message = document.querySelector('.js-message');
-
+const favList = document.querySelector('.js-fav-list');
+let listFavouritesDrinks = [];
+let drinks = [];
 //html render drinks
 function paintDrinks() {
   let html = '';
   for (const drink of drinks) {
     html += `<li class= "js-drinks" id=${drink.idDrink}>`;
-    html += `<h2 class ="title-drink">${drink.strDrink}</h2>`;
+    html += `<h2>${drink.strDrink}</h2>`;
     html += `<img class = "drinks-photo" src=${
       drink.strDrinkThumb || urlPlaceholder
-    } alt ="Foto bebida"/><i class="fa-solid fa-bookmark"></i>`;
+    } alt ="Foto bebida"/>`;
     html += `</li>`;
   }
   listDrinks.innerHTML = html;
   message.innerHTML = '';
 }
-//favourite drinks function
+//html render fav drinks
+function paintFavDrinks() {
+  for (const drink of listFavouritesDrinks) {
+    favList.innerHTML += `<li id=${drink.idDrink}>`;
+    favList.innerHTML += `<h2 class ="title-drink">${drink.strDrink}</h2>`;
+    favList.innerHTML += `<img class = "drinks-photo" src=${
+      drink.strDrinkThumb || urlPlaceholder
+    } alt ="Foto bebida"/><i class="fa-solid fa-bookmark"></i>`;
+    favList.innerHTML += `</li>`;
+  }
+}
 
-let listFavouritesDrinks = [];
-let drinks = [];
+//favourite drinks function
 function handleClickFav(event) {
   const idDrinkSelected = event.currentTarget.id;
-  const drinkFoundFav = drinks.find((drink) => {
+  const drinkFoundlist = drinks.find((drink) => {
     return drink.idDrink === idDrinkSelected;
   });
-  listFavouritesDrinks.push(drinkFoundFav);
+  const favFoundIndex = listFavouritesDrinks.findIndex((drink) => {
+    return drink.idDrink === idDrinkSelected;
+  });
+  if (favFoundIndex === -1) {
+    listFavouritesDrinks.push(drinkFoundlist);
+  } else {
+    listFavouritesDrinks.splice(favFoundIndex, 1);
+  }
   console.log(listFavouritesDrinks);
+  paintFavDrinks();
 }
 
 function addFavListener() {
