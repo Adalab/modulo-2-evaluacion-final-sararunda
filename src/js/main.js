@@ -8,14 +8,28 @@ const inputSearch = document.querySelector('.js-input');
 const btnSearch = document.querySelector('.js-btn-search');
 const message = document.querySelector('.js-message');
 const favList = document.querySelector('.js-fav-list');
-let listFavouritesDrinks = [];
-let drinks = [];
-//html render drinks
+let listFavouritesDrinks = []; //array dav drinks
+let drinks = []; //array all drinks
+//traer de localstorage
+// const getLocalStorage = localStorage.getItem('drinksFav');
+// listFavouritesDrinks = JSON.parse(getLocalStorage);
+// if (listFavouritesDrinks === null) {
+//   listFavouritesDrinks = [];
+// }
+// paintFavDrinks();
+//2.html render all drinks
 function paintDrinks() {
   let html = '';
   for (const drink of drinks) {
+    const favFoundIndex = listFavouritesDrinks.findIndex((favDrink) => {
+      return favDrink.idDrink === drink.idDrink;
+    });
+    let favClass = '';
+    if (favFoundIndex !== -1) {
+      favClass = 'title-drink';
+    }
     html += `<li class= "js-drinks" id=${drink.idDrink}>`;
-    html += `<h2>${drink.strDrink}</h2>`;
+    html += `<h2 class="${favClass}">${drink.strDrink}</h2>`;
     html += `<img class = "drinks-photo" src=${
       drink.strDrinkThumb || urlPlaceholder
     } alt ="Foto bebida"/>`;
@@ -24,36 +38,60 @@ function paintDrinks() {
   listDrinks.innerHTML = html;
   message.innerHTML = '';
 }
-//html render fav drinks
+//5.html render fav drinks
 function paintFavDrinks() {
+  let htmlFav = '';
   for (const drink of listFavouritesDrinks) {
-    favList.innerHTML += `<li id=${drink.idDrink}>`;
-    favList.innerHTML += `<h2 class ="title-drink">${drink.strDrink}</h2>`;
-    favList.innerHTML += `<img class = "drinks-photo" src=${
+    htmlFav += `<li class="js-drinks-fav" id=${drink.idDrink}>`;
+    htmlFav += `<h2>${drink.strDrink}</h2>`;
+    htmlFav += `<img class="drinks-photo" src=${
       drink.strDrinkThumb || urlPlaceholder
     } alt ="Foto bebida"/><i class="fa-solid fa-bookmark"></i>`;
-    favList.innerHTML += `</li>`;
+    htmlFav += `</li>`;
+  }
+  favList.innerHTML = htmlFav;
+}
+//7.function remove fav drink
+function removeDrinkFav(event) {
+  const idDrinkSelected = event.currentTarget.id;
+  const favFoundIndex = listFavouritesDrinks.findIndex((drink) => {
+    return drink.idDrink === idDrinkSelected;
+  });
+  listFavouritesDrinks.splice(favFoundIndex, 1);
+
+  paintFavDrinks();
+  removeFavListener();
+}
+//.6 event click to remove
+function removeFavListener() {
+  const liFavdrinks = document.querySelectorAll('.js-drinks-fav');
+  for (const item of liFavdrinks) {
+    item.addEventListener('click', removeDrinkFav);
   }
 }
-
-//favourite drinks function
+//4.favourite drinks function
 function handleClickFav(event) {
   const idDrinkSelected = event.currentTarget.id;
-  const drinkFoundlist = drinks.find((drink) => {
+  const clickedDrink = drinks.find((drink) => {
     return drink.idDrink === idDrinkSelected;
   });
   const favFoundIndex = listFavouritesDrinks.findIndex((drink) => {
     return drink.idDrink === idDrinkSelected;
   });
+
   if (favFoundIndex === -1) {
-    listFavouritesDrinks.push(drinkFoundlist);
+    listFavouritesDrinks.push(clickedDrink);
+    event.currentTarget.classList.add('title-drink');
   } else {
     listFavouritesDrinks.splice(favFoundIndex, 1);
+    event.currentTarget.classList.remove('title-drink');
   }
-  console.log(listFavouritesDrinks);
+  // //guardar en local storage
+  // localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
   paintFavDrinks();
+  removeFavListener();
 }
-
+//3.event click fav
 function addFavListener() {
   const lidrinks = document.querySelectorAll('.js-drinks');
   for (const item of lidrinks) {
@@ -72,11 +110,10 @@ function handleClickSearch(event) {
       .then((response) => response.json())
       .then((data) => {
         drinks = data.drinks;
-        console.log(drinks);
         paintDrinks();
         addFavListener();
       });
   }
 }
-//event click search
+//1.event click search
 btnSearch.addEventListener('click', handleClickSearch);
