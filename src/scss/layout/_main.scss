@@ -41,6 +41,10 @@
                 font-family: $font;
                 color: $black;
                 font-size: 16px;
+                &:hover{
+                    background-color: $beige;
+                
+                }
             }
         }
         &__alert{
@@ -55,23 +59,39 @@
             
         }
     }
-    
-}
-.drinks-photo{
-    width: 200px;
-    border-radius: 15px;
-    border: solid 2px white;
-    
+    &__list-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+    &__list{
+        list-style: none;
+        &__item-title{
+            text-align: center;
+            width: 200px;
+            margin-top: 30px;
+            color: $blue;
+            &__drinks-photo{
+                width: 200px;
+                border-radius: 15px;
+            }
+        }
+    }
+    }
     
 }
 .title-drink {
-    background-color: black;
-    color: white;
     width: 200px;
+    .main__list-container__list__item-title {
+        background-color: $blue;
+        color: white;
+        border-radius: 10px;
+    }
 }
-.list-container{
-    display: flex;
+.fa-bookmark{
+    color: goldenrod;
+    padding-left: 5px;
 }
+
 
 //responsive tablet
 @media all and (min-width: 600px) {
