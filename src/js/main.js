@@ -103,7 +103,7 @@ function addFavListener() {
 function handleClickSearch(event) {
   event.preventDefault();
   if (inputSearch.value === '') {
-    message.innerHTML = 'introduce un término de búsqueda';
+    message.innerHTML = '* introduce un término de búsqueda';
     listDrinks.innerHTML = '';
   } else {
     //server request

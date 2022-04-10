@@ -1,12 +1,21 @@
 .main {
-    background-image: url(../images/header.jpg);
-    background-size: contain;
-    height: 100vh;
+    background-color: #EFEFF0;
     &__form-container{
+        background-image: url(../images/130.jpg);
+        background-size: cover;
+        border-bottom: solid 1px #CBB55B;
+        // background-color: rgba($beige, 0.2);
         padding: 50px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        }
+        
         &__title-finder{
             font-weight: lighter;
             border-radius: 15px;
@@ -24,15 +33,27 @@
                 font-size: 16px;
             }
             &__btn{
+                height: 40px;
                 padding: 5px 10px;
                 border-radius: 10px;
-                margin-left: 20px;
+        
+                margin: 10px;
                 font-family: $font;
                 color: $black;
                 font-size: 16px;
             }
         }
-        
+        &__alert{
+            background-color: #BE4D34;
+            
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-top: 20px;
+            color: beige;
+            border-radius: 15px;
+            font-size: 15px;
+            
+        }
     }
     
 }
@@ -56,13 +77,24 @@
 @media all and (min-width: 600px) {
     .main{
         &__form-container{
+            &__form  {
+                flex-direction: row;
+            }
             &__title-finder{
                 font-size: 35px;
                 &__search{
                     font-size: 15px;
                     height: 40px;
+                    font-size: 18px;
                 }
+                &__btn{
+                    font-size: 18px;
+                }
+            }
+            &__alert{
+                font-size: 18px;
             }
         }
     }
 }
+
