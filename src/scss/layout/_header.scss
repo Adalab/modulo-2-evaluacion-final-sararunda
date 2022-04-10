@@ -1,1 +1,56 @@
+.container-header{
+    background-color: #1B3D5E;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 4px #F6ECCA;
+    &__title{
+       
+        font-size: 30px;
+        padding: 20px;
+        color: #F6ECCA;
+        text-align: center;
+        font-weight: lighter;
+    }
+    &__slogan{
+        font-size: 16px;
+        font-style: oblique;
+        padding: 35px 20px;
+        color: #F6ECCA;
+        text-align: center;
+        
+    }
+}
+//responsive tablet
+@media all and (min-width: 600px) {
+    .container-header{
+        padding: 0 40px;
+        &__title{
+            font-size: 40px;
+        }
+        &__slogan{
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 20px;
+        
+             
+         }
+        
+    }
+}
+//responsive desktop
+@media all and (min-width: 1000px) {
+    .container-header{
+        justify-content: space-around;
+        &__title{
+            font-size: 50px;
+        }
+        &__slogan{
+           
+           align-items: center;
+            
+        }
+    }
+}
 

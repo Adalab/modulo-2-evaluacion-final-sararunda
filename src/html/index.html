@@ -8,24 +8,20 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <title>Buscador de Cócteles</title>
   </head>
   <body>
     <header></header>
-    <main class="js-main">
-      <h1>Buscador de Cócteles</h1>
-      <form action="">
-        <input class="js-input" type="text" />
-        <input class="js-btn-search" type="button" value="buscar" />
-        <input class="js-btn-reset" type="button" value="reset" />
-      </form>
-      <p class="js-message"></p>
-      <div class="list-container">
-        <ul class="js-fav-list"></ul>
-        <ul class="js-list"></ul>
-      </div>
-    </main>
+    <include src="./partials/header.html"></include>
+    <include src="./partials/main.html"></include>
+    <include src="./partials/footer.html"></include>
     <footer></footer>
     <script src="../assets/js/main.js"></script>
   </body>

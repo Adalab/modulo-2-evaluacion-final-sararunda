@@ -10,13 +10,14 @@ const message = document.querySelector('.js-message');
 const favList = document.querySelector('.js-fav-list');
 let listFavouritesDrinks = []; //array dav drinks
 let drinks = []; //array all drinks
-//traer de localstorage
-// const getLocalStorage = localStorage.getItem('drinksFav');
-// listFavouritesDrinks = JSON.parse(getLocalStorage);
-// if (listFavouritesDrinks === null) {
-//   listFavouritesDrinks = [];
-// }
-// paintFavDrinks();
+// traer de localstorage
+const getLocalStorage = localStorage.getItem('drinksFav');
+listFavouritesDrinks = JSON.parse(getLocalStorage);
+if (listFavouritesDrinks === null) {
+  listFavouritesDrinks = [];
+}
+paintFavDrinks();
+removeFavListener();
 //2.html render all drinks
 function paintDrinks() {
   let html = '';
@@ -87,7 +88,7 @@ function handleClickFav(event) {
     event.currentTarget.classList.remove('title-drink');
   }
   // //guardar en local storage
-  // localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
+  localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
   paintFavDrinks();
   removeFavListener();
 }
