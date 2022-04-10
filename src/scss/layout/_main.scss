@@ -58,11 +58,19 @@
             font-size: 15px;
             
         }
+        &__instructions{
+            text-align: center;
+            padding: 20px;
+            font-style: oblique;
+            background-color: white;
+            border-bottom: solid 1px black;
+    
+        }
     }
     &__list-container{
     display: flex;
     justify-content: space-between;
-    padding: 30px 50px;
+    padding: 30px 120px;
     &__list{
         list-style: none;
         &__item-title{
@@ -90,6 +98,9 @@
 .fa-bookmark{
     color: goldenrod;
     padding-left: 5px;
+    &:hover{
+    color: gold;
+    }
 }
 
 
@@ -117,4 +128,3 @@
         }
     }
 }
-
