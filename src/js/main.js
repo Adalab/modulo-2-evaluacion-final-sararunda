@@ -10,13 +10,14 @@ const message = document.querySelector('.js-message');
 const favList = document.querySelector('.js-fav-list');
 let listFavouritesDrinks = []; //array dav drinks
 let drinks = []; //array all drinks
-//traer de localstorage
-// const getLocalStorage = localStorage.getItem('drinksFav');
-// listFavouritesDrinks = JSON.parse(getLocalStorage);
-// if (listFavouritesDrinks === null) {
-//   listFavouritesDrinks = [];
-// }
-// paintFavDrinks();
+// traer de localstorage
+const getLocalStorage = localStorage.getItem('drinksFav');
+listFavouritesDrinks = JSON.parse(getLocalStorage);
+if (listFavouritesDrinks === null) {
+  listFavouritesDrinks = [];
+}
+paintFavDrinks();
+removeFavListener();
 //2.html render all drinks
 function paintDrinks() {
   let html = '';
@@ -28,9 +29,9 @@ function paintDrinks() {
     if (favFoundIndex !== -1) {
       favClass = 'title-drink';
     }
-    html += `<li class= "js-drinks" id=${drink.idDrink}>`;
-    html += `<h2 class="${favClass}">${drink.strDrink}</h2>`;
-    html += `<img class = "drinks-photo" src=${
+    html += `<li class= "js-drinks ${favClass}" id=${drink.idDrink}>`;
+    html += `<h2 class="main__list-container__list__item-title">${drink.strDrink}</h2>`;
+    html += `<img class = "main__list-container__list__item-title__drinks-photo" src=${
       drink.strDrinkThumb || urlPlaceholder
     } alt ="Foto bebida"/>`;
     html += `</li>`;
@@ -43,10 +44,10 @@ function paintFavDrinks() {
   let htmlFav = '';
   for (const drink of listFavouritesDrinks) {
     htmlFav += `<li class="js-drinks-fav" id=${drink.idDrink}>`;
-    htmlFav += `<h2>${drink.strDrink}</h2>`;
-    htmlFav += `<img class="drinks-photo" src=${
+    htmlFav += `<h2 class="main__list-container__list__item-title">${drink.strDrink}<i class="fa-solid fa-bookmark"></i></h2>`;
+    htmlFav += `<img class="main__list-container__list__item-title__drinks-photo" src=${
       drink.strDrinkThumb || urlPlaceholder
-    } alt ="Foto bebida"/><i class="fa-solid fa-bookmark"></i>`;
+    } alt ="Foto bebida"/>`;
     htmlFav += `</li>`;
   }
   favList.innerHTML = htmlFav;
@@ -87,7 +88,7 @@ function handleClickFav(event) {
     event.currentTarget.classList.remove('title-drink');
   }
   // //guardar en local storage
-  // localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
+  localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
   paintFavDrinks();
   removeFavListener();
 }
@@ -102,7 +103,7 @@ function addFavListener() {
 function handleClickSearch(event) {
   event.preventDefault();
   if (inputSearch.value === '') {
-    message.innerHTML = 'introduce un término de búsqueda';
+    message.innerHTML = '* introduce un término de búsqueda';
     listDrinks.innerHTML = '';
   } else {
     //server request
