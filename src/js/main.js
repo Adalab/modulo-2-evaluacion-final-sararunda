@@ -10,7 +10,7 @@ const message = document.querySelector('.js-message');
 const favList = document.querySelector('.js-fav-list');
 let listFavouritesDrinks = []; //array dav drinks
 let drinks = []; //array all drinks
-// traer de localstorage
+// 9.traer de localstorage
 const getLocalStorage = localStorage.getItem('drinksFav');
 listFavouritesDrinks = JSON.parse(getLocalStorage);
 if (listFavouritesDrinks === null) {
@@ -59,7 +59,7 @@ function removeDrinkFav(event) {
     return drink.idDrink === idDrinkSelected;
   });
   listFavouritesDrinks.splice(favFoundIndex, 1);
-
+  paintDrinks(); //REVISAR POR QUÉ NO SE VUELVEN A PONER
   paintFavDrinks();
   removeFavListener();
 }
@@ -70,7 +70,7 @@ function removeFavListener() {
     item.addEventListener('click', removeDrinkFav);
   }
 }
-//4.favourite drinks function
+//4.choose favourite drink function
 function handleClickFav(event) {
   const idDrinkSelected = event.currentTarget.id;
   const clickedDrink = drinks.find((drink) => {
@@ -87,7 +87,7 @@ function handleClickFav(event) {
     listFavouritesDrinks.splice(favFoundIndex, 1);
     event.currentTarget.classList.remove('title-drink');
   }
-  // //guardar en local storage
+  //8.Guardar en local storage
   localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
   paintFavDrinks();
   removeFavListener();
