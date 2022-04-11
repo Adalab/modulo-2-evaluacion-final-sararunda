@@ -121,7 +121,7 @@ function handleClickSearch(event) {
 //1.event click search
 btnSearch.addEventListener('click', handleClickSearch);
 
-//reset btn
+//10.reset btn
 function handleClickReset() {
   listDrinks.innerHTML = '';
   favList.innerHTML = '';
