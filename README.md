@@ -1,34 +1,36 @@
-# Descripción del proyecto🚀:
+# Project title:
+## Cocktails together :cocktail:
 
-_En este proyecto he desarrollado un buscador de cócteles, cuya funcion es buscar entre más de 635 cócteles y tener la posibilidad de añadirlos a una lista de favortios._
+## Project description🚀:
+_In this project I have developed a cocktail search engine, whose function is to search among more than 635 cocktails and have the possibility of adding them to a list of favourites._
 
-## Se desarrollará una página web con las siguientes características:
+## A website will be developed with the following characteristics:
+Language: English.
+Using HTML, Sass and Javascript.   
+Use of mediaqueries and other responsive design techniques so that the website adapts to the screen size of different devices, although it is designed for tablet use onwards.  
+Using git for project version control.  
+Use of branches to make distinct parts.  
+Use of pull request to merge branches into the main branch.  
+Publication of the result on the Internet using GitHub Pages. 
 
-Uso de HTML, Sass y Javascript
-Uso de mediaqueries y otras técnicas de diseño responsive para que la web se adapte al tamaño de pantalla de distintos dispositivos, aunque está pensada para el uso de tablet en adelante.
-Uso de git para el control de versiones del proyecto.
-Uso de ramas para realización de diferentes partes diferenciadas.
-Uso de pull request para mergear ramas en la principal.
-Publicación del resultado en Internet usando GitHub Pages.
+### On the main page, you will see:
 
-### En la página principal, aparece:
+* A header: company name, icon and slogan.
+* Main: search engine with a button to start the search and a second button to reset the data.
 
-Un encabezado: nombre de la compañía, icono y slogan.
-Main: buscador con un botón para iniciar la búsqueda y un segundo botón para resetear los datos.
+### Built with 🛠️:
 
-### Construido con 🛠️:
-
-Lenguajes:
-HTML
-SCSS
-Estructura BEM
-Javascript
-Herramientas:
-VSC
-GITHUB
-GULP
-ADALAB WEB STARTER KIT
-NPM
-Autora:
+#### Languages:
+* HTML
+* SCSS
+* BEM structure
+* Javascript
+#### Tools:
+* VSC
+* GITHUB
+* GULP
+* ADALAB WEB STARTER KIT
+* NPM
+#### :raising_hand: Author:
 
 Sara Fernández
