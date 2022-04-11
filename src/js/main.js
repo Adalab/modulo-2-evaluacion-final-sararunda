@@ -8,6 +8,7 @@ const inputSearch = document.querySelector('.js-input');
 const btnSearch = document.querySelector('.js-btn-search');
 const message = document.querySelector('.js-message');
 const favList = document.querySelector('.js-fav-list');
+const btnReset = document.querySelector('.js-btn-reset');
 let listFavouritesDrinks = []; //array dav drinks
 let drinks = []; //array all drinks
 // 9.traer de localstorage
@@ -60,6 +61,7 @@ function removeDrinkFav(event) {
   });
   listFavouritesDrinks.splice(favFoundIndex, 1);
   paintDrinks(); //REVISAR POR QUÉ NO SE VUELVEN A PONER
+  addFavListener();
   paintFavDrinks();
   removeFavListener();
 }
@@ -118,3 +120,12 @@ function handleClickSearch(event) {
 }
 //1.event click search
 btnSearch.addEventListener('click', handleClickSearch);
+
+//reset btn
+function handleClickReset() {
+  listDrinks.innerHTML = '';
+  favList.innerHTML = '';
+  inputSearch.value = '';
+}
+
+btnReset.addEventListener('click', handleClickReset);
