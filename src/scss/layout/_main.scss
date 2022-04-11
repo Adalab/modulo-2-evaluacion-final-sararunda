@@ -1,7 +1,7 @@
 .main {
-    background-color: #EFEFF0;
+    background-color: $clear-grey;
     &__form-container{
-        background-image: url(../images/130.jpg);
+        background-image: url(../images/bar.jpg);
         background-size: cover;
         border-bottom: solid 1px #CBB55B;
         // background-color: rgba($beige, 0.2);
@@ -58,14 +58,6 @@
             font-size: 15px;
             
         }
-        &__instructions{
-            text-align: center;
-            padding: 20px;
-            font-style: oblique;
-            background-color: white;
-            border-bottom: solid 1px black;
-    
-        }
     }
     &__list-container{
     display: flex;
@@ -77,7 +69,8 @@
             text-align: center;
             width: 200px;
             margin-top: 30px;
-            color: $blue;
+            margin-bottom: 10px;
+            color: $brown;
             &__drinks-photo{
                 width: 200px;
                 border-radius: 15px;
@@ -85,12 +78,27 @@
         }
     }
     }
+    &__container-title-list{
+        font-size: 30px;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 160px;
+        &__results{
+            border: 1px solid $black;
+            border-radius: 15px;
+            padding: 5px;
+        }
+        
+
+        
+
+    }
     
 }
 .title-drink {
     width: 200px;
     .main__list-container__list__item-title {
-        background-color: $blue;
+        background-color: $brown;
         color: white;
         border-radius: 10px;
     }

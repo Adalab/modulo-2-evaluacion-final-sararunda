@@ -60,7 +60,7 @@ function removeDrinkFav(event) {
     return drink.idDrink === idDrinkSelected;
   });
   listFavouritesDrinks.splice(favFoundIndex, 1);
-  paintDrinks(); //REVISAR POR QUÉ NO SE VUELVEN A PONER
+  paintDrinks();
   addFavListener();
   paintFavDrinks();
   removeFavListener();
