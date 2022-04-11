@@ -1,5 +1,5 @@
-# Project title:
-## Cocktails together :cocktail:
+## Project title:
+# Cocktails together :cocktail:
 
 ## Project description🚀:
 _In this project I have developed a cocktail search engine, whose function is to search among more than 635 cocktails and have the possibility of adding them to a list of favourites._
