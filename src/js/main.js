@@ -60,6 +60,7 @@ function removeDrinkFav(event) {
     return drink.idDrink === idDrinkSelected;
   });
   listFavouritesDrinks.splice(favFoundIndex, 1);
+  localStorage.setItem('drinksFav', JSON.stringify(listFavouritesDrinks));
   paintDrinks();
   addFavListener();
   paintFavDrinks();
