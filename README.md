@@ -6,11 +6,17 @@ _In this project I have developed a cocktail search engine, whose function is to
 
 ## A website will be developed with the following characteristics:
 Language: English.
-Using HTML, Sass and Javascript.   
-Use of mediaqueries and other responsive design techniques so that the website adapts to the screen size of different devices, although it is designed for tablet use onwards.  
-Using git for project version control.  
-Use of branches to make distinct parts.  
-Use of pull request to merge branches into the main branch.  
+
+Using HTML, Sass and Javascript.
+
+Use of mediaqueries and other responsive design techniques so that the website adapts to the screen size of different devices, although it is designed for tablet use onwards. 
+
+Using git for project version control. 
+
+Use of branches to make distinct parts.
+
+Use of pull request to merge branches into the main branch. 
+
 Publication of the result on the Internet using GitHub Pages. 
 
 ### On the main page, you will see:
