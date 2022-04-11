@@ -110,7 +110,7 @@ function handleClickSearch(event) {
     fetch(urlServer + inputSearch.value)
       .then((response) => response.json())
       .then((data) => {
-        drinks = data.drinks;
+        drinks = data.drinks || [];
         paintDrinks();
         addFavListener();
       });
